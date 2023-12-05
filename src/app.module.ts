@@ -16,9 +16,19 @@ import { OrderModule } from './order/order.module';
 import { Customer } from './typeorm/entities/Customer';
 import { Order } from './typeorm/entities/Order';
 import { CustomerModule } from './customer/customer.module';
+import { CacheModule } from '@nestjs/cache-manager';
+import { CartModule } from './cart/cart.module';
+// import { redisStore } from 'cache-manager-redis-yet';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
+    // CacheModule.register({
+    //   ttl: 180000,
+    //   store: redisStore,
+    //   host: 'localhost',
+    //   port: 6379,
+    // }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -36,6 +46,8 @@ import { CustomerModule } from './customer/customer.module';
     AuthModule,
     OrderModule,
     CustomerModule,
+    CartModule,
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],

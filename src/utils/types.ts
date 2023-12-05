@@ -1,5 +1,5 @@
-import { type } from "os";
-import { Gender, OrderStatus } from "./enums";
+import { type } from 'os';
+import { Gender, OrderStatus } from './enums';
 
 export type CreateProductParams = {
   proName: string;
@@ -82,7 +82,7 @@ export type CreateOrderParams = {
   orderTotal: number;
   orderStatus: OrderStatus;
   cusID: number;
-}
+};
 
 export type UpdateOrderParams = {
   orderDate: Date;
@@ -90,10 +90,18 @@ export type UpdateOrderParams = {
   orderTotal: number;
   orderStatus: OrderStatus;
   cusID: number;
-}
+};
 
 export type LoginUserParams = {
   userName: string;
   userPassword: string;
   // typeLogin: string;
+};
+
+export type PushProductToCartParams = {
+  proID: number;
+  proName: string;
+  proPrice: number;
+  proQuantity: number;
+  // proDiscountPercent: number;
 };
