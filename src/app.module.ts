@@ -20,6 +20,10 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { CartModule } from './cart/cart.module';
 // import { redisStore } from 'cache-manager-redis-yet';
 import { RedisModule } from './redis/redis.module';
+import { CouponModule } from './coupon/coupon.module';
+import { Coupon } from './typeorm/entities/Coupon';
+import { EmployeeModule } from './employee/employee.module';
+import { Employee } from './typeorm/entities/Employee';
 
 @Module({
   imports: [
@@ -36,7 +40,17 @@ import { RedisModule } from './redis/redis.module';
       username: 'root',
       password: 'root',
       database: 'MiniplantDB',
-      entities: [Product, Type, Supplier, User, Role, Customer, Order],
+      entities: [
+        Product,
+        Type,
+        Supplier,
+        User,
+        Role,
+        Customer,
+        Order,
+        Coupon,
+        Employee,
+      ],
       synchronize: false,
     }),
     ProductModule,
@@ -48,6 +62,8 @@ import { RedisModule } from './redis/redis.module';
     CustomerModule,
     CartModule,
     RedisModule,
+    CouponModule,
+    EmployeeModule,
   ],
   controllers: [AppController],
   providers: [AppService],

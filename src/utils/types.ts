@@ -92,6 +92,54 @@ export type UpdateOrderParams = {
   cusID: number;
 };
 
+export type CreateCouponParams = {
+  couponID: number;
+  couponCode: string;
+  couponName: string;
+  couponDescr: string;
+  maxDiscountValue: number;
+  discountPercent: number;
+  startDate: Date;
+  endDate: Date;
+};
+
+export type UpdateCouponParams = {
+  couponID: number;
+  couponCode: string;
+  couponName: string;
+  couponDescr: string;
+  maxDiscountValue: number;
+  discountPercent: number;
+  startDate: Date;
+  endDate: Date;
+};
+
+export type CreateEmployeeParams = {
+  empID: number;
+  empName: string;
+  empBirthdate: Date;
+  empAdd: string;
+  empPhone: string;
+  empEmail: string;
+  startDate: Date;
+  accPassword: string;
+  accCreatedDate: Date;
+  accStatus: number;
+};
+
+export type UpdateEmployeeParams = {
+  empID: number;
+  empName: string;
+  empBirthdate: Date;
+  empAdd: string;
+  empPhone: string;
+  empEmail: string;
+  startDate: Date;
+  accPassword: string;
+  accCreatedDate: Date;
+  accStatus: number;
+};
+
 export type LoginUserParams = {
   userName: string;
   userPassword: string;
