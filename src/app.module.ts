@@ -9,7 +9,6 @@ import { TypeModule } from './type/type.module';
 import { SupplierModule } from './supplier/supplier.module';
 import { Supplier } from './typeorm/entities/Supplier';
 import { AuthModule } from './auth/auth.module';
-import { User } from './typeorm/entities/User';
 import { Role } from './typeorm/entities/Role';
 import { OrderModule } from './order/order.module';
 import { Customer } from './typeorm/entities/Customer';
@@ -24,6 +23,8 @@ import { Coupon } from './typeorm/entities/Coupon';
 import { EmployeeModule } from './employee/employee.module';
 import { Employee } from './typeorm/entities/Employee';
 import { RoleModule } from './role/role.module';
+import { ImageModule } from './image/image.module';
+import { Image } from './typeorm/entities/Image';
 
 @Module({
   imports: [
@@ -44,12 +45,12 @@ import { RoleModule } from './role/role.module';
         Product,
         Type,
         Supplier,
-        User,
         Role,
         Customer,
         Order,
         Coupon,
         Employee,
+        Image
       ],
       synchronize: false,
     }),
@@ -64,6 +65,7 @@ import { RoleModule } from './role/role.module';
     CouponModule,
     EmployeeModule,
     RoleModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

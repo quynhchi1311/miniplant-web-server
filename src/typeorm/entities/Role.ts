@@ -5,7 +5,6 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { User } from './User';
 import { Customer } from './Customer';
 import { Employee } from './Employee';
 
@@ -16,9 +15,6 @@ export class Role {
 
   @Column()
   roleName: string;
-
-  @OneToMany(() => User, (user) => user.role)
-  users: User[];
 
   @OneToMany(() => Customer, (customer) => customer.role)
   customers: Customer[];

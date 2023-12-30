@@ -144,6 +144,18 @@ export type LoginUserParams = {
   // typeLogin: string;
 };
 
+export type CreateImageParams = {
+  imageSrc: string;
+  isMain: number;
+  proID: number;
+};
+
+export type UpdateImageParams = {
+  imageSrc: string;
+  isMain: number;
+  proID: number;
+};
+
 export type PushProductToCartParams = {
   proID: number;
   proName: string;

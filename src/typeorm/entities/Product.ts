@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Type } from './Type';
 import { Supplier } from './Supplier';
+import { Image } from './Image';
 
 @Entity({ name: 'PRODUCT' })
 export class Product {
@@ -29,4 +30,7 @@ export class Product {
   @ManyToOne(() => Supplier, (supplier) => supplier.products)
   @JoinColumn({name: "supID"})
   supplier: Supplier;
+
+  @OneToMany(() => Image, (image) => image.product)
+  images: Image[];
 }
