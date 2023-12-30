@@ -7,7 +7,7 @@ import { CreateRoleParams, UpdateRoleParams } from 'src/utils/types';
 @Injectable()
 export class RoleService {
   constructor(
-    @InjectRepository(RoleService) private roleService: Repository<Role>,
+    @InjectRepository(Role) private roleService: Repository<Role>,
   ) {}
 
   findAll() {
