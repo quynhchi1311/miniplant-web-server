@@ -23,6 +23,7 @@ import { CouponModule } from './coupon/coupon.module';
 import { Coupon } from './typeorm/entities/Coupon';
 import { EmployeeModule } from './employee/employee.module';
 import { Employee } from './typeorm/entities/Employee';
+import { RoleModule } from './role/role.module';
 
 @Module({
   imports: [
@@ -62,6 +63,7 @@ import { Employee } from './typeorm/entities/Employee';
     RedisModule,
     CouponModule,
     EmployeeModule,
+    RoleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

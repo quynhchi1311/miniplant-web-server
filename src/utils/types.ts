@@ -130,6 +130,14 @@ export type UpdateEmployeeParams = {
   accStatus: number;
 };
 
+export type CreateRoleParams = {
+  roleName: string;
+};
+
+export type UpdateRoleParams = {
+  roleName: string;
+};
+
 export type LoginUserParams = {
   userName: string;
   userPassword: string;
