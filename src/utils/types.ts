@@ -41,17 +41,6 @@ export type UpdateSupplierParams = {
   supEmail: string;
 };
 
-export type CreateUserParams = {
-  userName: string;
-  userPassword: string;
-  createdDate: Date;
-};
-
-export type UpdateUserParams = {
-  userName: string;
-  userPassword: string;
-};
-
 export type CreateCustomerParams = {
   cusName: string;
   cusGender: Gender;
@@ -60,6 +49,7 @@ export type CreateCustomerParams = {
   cusPhone: string;
   cusEmail: string;
   accPassword: string;
+  accConfirmPassword: string;
   accCreatedDate: Date;
   roleID: number;
 };

@@ -8,7 +8,6 @@ import { ProductModule } from './product/product.module';
 import { TypeModule } from './type/type.module';
 import { SupplierModule } from './supplier/supplier.module';
 import { Supplier } from './typeorm/entities/Supplier';
-import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { User } from './typeorm/entities/User';
 import { Role } from './typeorm/entities/Role';
@@ -56,7 +55,6 @@ import { Employee } from './typeorm/entities/Employee';
     ProductModule,
     TypeModule,
     SupplierModule,
-    UserModule,
     AuthModule,
     OrderModule,
     CustomerModule,

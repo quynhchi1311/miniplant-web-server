@@ -39,6 +39,9 @@ export class Customer {
   @Column()
   accCreatedDate: Date;
 
+  @Column()
+  roleID: number;
+
   @ManyToOne(() => Role, (role) => role.customers)
   @JoinColumn({ name: 'roleID' })
   role: Role;

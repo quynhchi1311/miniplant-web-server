@@ -6,28 +6,13 @@ import { LoginUserParams } from 'src/utils/types';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  signIn(@Body() createAuthDto: LoginUserParams) {
-    return this.authService.signIn(createAuthDto);
+  @Post('customer')
+  signInCustomer(@Body() createAuthDto: LoginUserParams) {
+    return this.authService.signInCustomer(createAuthDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.authService.findAll();
-  // }
-
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.authService.findOne(+id);
-  // }
-
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-  //   return this.authService.update(+id, updateAuthDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.authService.remove(+id);
-  // }
+  @Post('employee')
+  signInEmployee(@Body() createAuthDto: LoginUserParams) {
+    return this.authService.signInEmployee(createAuthDto);
+  }
 }

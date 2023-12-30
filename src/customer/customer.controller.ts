@@ -1,15 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { CreateCustomerParams } from 'src/utils/types';
 
 @Controller('customer')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
   @Post()
-  create(@Body() createCustomerDto: CreateCustomerDto) {
-    return this.customerService.create(createCustomerDto);
+  async create(@Body() createCustomerDetails: CreateCustomerParams) {
+    if (this.customerService.isMatchedConfirmPassword(createCustomerDetails)) {
+      return await this.customerService.create(createCustomerDetails);
+    } else {
+      throw new BadRequestException('Passwords do not match');
+    }
   }
 
   @Get()

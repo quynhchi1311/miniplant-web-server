@@ -1,26 +1,45 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserService } from 'src/user/user.service';
 import { LoginUserParams } from 'src/utils/types';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
+import { CustomerService } from 'src/customer/customer.service';
+import { EmployeeService } from 'src/employee/employee.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(UserService) private userService: UserService,
+    @Inject(CustomerService) private customerService: CustomerService,
+    @Inject(EmployeeService) private employeeService: EmployeeService,
     private jwtService: JwtService,
   ) {}
 
-  async signIn(loginUserParams: LoginUserParams) {
+  async signInCustomer(loginUserParams: LoginUserParams) {
     const { userName, userPassword } = loginUserParams;
 
-    const user = await this.userService.findByUsername(userName);
+    const user = await this.customerService.findByUsername(userName);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    if (this.comparePasswords(userPassword, user.accPassword)) {
+    // if (userPassword === user.accPassword) {
+      const payload = { userID: user.cusID, role: user.role };
+      return {
+        access_token: await this.jwtService.signAsync(payload),
+      };
+    }
+    throw new UnauthorizedException();
+  }
+
+  async signInEmployee(loginUserParams: LoginUserParams) {
+    const { userName, userPassword } = loginUserParams;
+
+    const user = await this.employeeService.findByUsername(userName);
     if (!user) {
       throw new UnauthorizedException();
     }
     // if (this.comparePasswords(userPassword, user.userPassword)) {
-    if (userPassword === user.userPassword) {
-      const payload = { userID: user.userID, role: user.role };
+    if (userPassword === user.accPassword) {
+      const payload = { userID: user.empID, role: user.role };
       return {
         access_token: await this.jwtService.signAsync(payload),
       };

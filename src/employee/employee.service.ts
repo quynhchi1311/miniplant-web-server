@@ -21,6 +21,10 @@ export class EmployeeService {
     });
   }
 
+  findByUsername(username: string) {
+    return this.employeeRepository.findOneBy({ empEmail: username })
+  }
+
   create(createEmployeeDetails: CreateEmployeeParams) {
     const newEmployee = this.employeeRepository.create(createEmployeeDetails);
     return this.employeeRepository.save(newEmployee);
