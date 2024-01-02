@@ -32,6 +32,10 @@ export class CartService {
   }
 
   async getCart(sessionID: string) {
-    return await this.redisRepository.get('redisCart:', sessionID);
+    let data = await this.redisRepository.get('redisCart:', sessionID);
+    if (data) {
+      return data;
+    }
+    return [];
   }
 }

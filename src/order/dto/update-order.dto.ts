@@ -5,5 +5,5 @@ export class UpdateOrderDto {
   orderPreTotal: number;
   orderTotal: number;
   orderStatus: OrderStatus;
-  cusID: number;
+  cusID?: number;
 }

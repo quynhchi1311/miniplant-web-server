@@ -14,8 +14,20 @@ export class CartController {
     return this.cartService.pushProductToCart(session.id, pushProductToCartDto);
   }
 
+  @Post('/user')
+  createWithUser(
+    @Body() pushProductToCartDto: PushProductToCartDto, userID: string,
+  ) {
+    return this.cartService.pushProductToCart(userID, pushProductToCartDto);
+  }
+
   @Get()
   getCart(@Session() session: Record<string, any>) {
     return this.cartService.getCart(session.id);
+  }
+
+  @Get()
+  getCartWithUser(@Body() userID: string) {
+    return this.cartService.getCart(userID);
   }
 }

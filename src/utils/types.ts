@@ -5,6 +5,7 @@ export type CreateProductParams = {
   proName: string;
   proDescr: string;
   proPrice: number;
+  proCostPrice: number;
   proQuantity: number;
   proDiscountPercent: number;
 };
@@ -13,6 +14,7 @@ export type UpdateProductParams = {
   proName: string;
   proDescr: string;
   proPrice: number;
+  proCostPrice: number;
   proQuantity: number;
   proDiscountPercent: number;
 };
@@ -71,7 +73,7 @@ export type CreateOrderParams = {
   orderPreTotal: number;
   orderTotal: number;
   orderStatus: OrderStatus;
-  cusID: number;
+  cusID?: number;
 };
 
 export type UpdateOrderParams = {
@@ -79,8 +81,27 @@ export type UpdateOrderParams = {
   orderPreTotal: number;
   orderTotal: number;
   orderStatus: OrderStatus;
-  cusID: number;
+  cusID?: number;
 };
+
+export type CreateOrderProductParams = {
+  orderID: number;
+  proID: number;
+  quantity: number;
+  price: number;
+  costPrice: number;
+  discountPercent: number;
+};
+
+export type UpdateOrderProductParams = {
+  orderID: number;
+  proID: number;
+  quantity: number;
+  price: number;
+  costPrice: number;
+  discountPercent: number;
+};
+
 
 export type CreateCouponParams = {
   couponID: number;

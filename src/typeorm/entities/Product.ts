@@ -2,6 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 import { Type } from './Type';
 import { Supplier } from './Supplier';
 import { Image } from './Image';
+import { OrderProduct } from './Order_Product';
 
 @Entity({ name: 'PRODUCT' })
 export class Product {
@@ -23,6 +24,9 @@ export class Product {
   @Column({ default: 0 })
   proDiscountPercent: number;
 
+  @Column()
+  proCostPrice: number;
+
   @ManyToOne(() => Type, (type) => type.products)
   @JoinColumn({name: "typeID"})
   type: Type;
@@ -33,4 +37,7 @@ export class Product {
 
   @OneToMany(() => Image, (image) => image.product)
   images: Image[];
+
+  @OneToMany(() => OrderProduct, orderProduct => orderProduct.product)
+  ordersProducts: OrderProduct[];
 }

@@ -21,9 +21,10 @@ export class OrderService {
     });
   }
 
-  create(createOrderDetails: CreateOrderParams) {
+  async create(createOrderDetails: CreateOrderParams) {
     const newOrder = this.orderRepository.create(createOrderDetails);
-    return this.orderRepository.save(newOrder);
+    const savedOrder = await this.orderRepository.save(newOrder);
+    return savedOrder.orderID;
   }
 
   update(id: number, updateOrderDetails: UpdateOrderParams) {

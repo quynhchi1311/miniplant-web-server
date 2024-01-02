@@ -22,8 +22,9 @@ export class AuthService {
     }
     if (this.comparePasswords(userPassword, user.accPassword)) {
     // if (userPassword === user.accPassword) {
-      const payload = { userID: user.cusID, role: user.role };
+      const payload = { userID: user.cusID, roleID: user.roleID };
       return {
+        data: payload,
         access_token: await this.jwtService.signAsync(payload),
       };
     }

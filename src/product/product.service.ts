@@ -16,7 +16,7 @@ export class ProductService {
   ) {}
 
   findAll() {
-    return this.productRepository.find();
+    return this.productRepository.find({ relations: ['images'] });
   }
 
   findById(id: number) {

@@ -26,16 +26,21 @@ export class ProductController {
     return this.productService.create(createProductDto);
   }
 
+  // @Get()
+  // async findAll(
+  //   @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number = 1,
+  //   @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number = 10,
+  // ): Promise<Pagination<Product>> {
+  //   limit = limit > 100 ? 100 : limit;
+  //   return this.productService.paginate({
+  //     page,
+  //     limit,
+  //   });
+  // }
+
   @Get()
-  async findAll(
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number = 1,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number = 10,
-  ): Promise<Pagination<Product>> {
-    limit = limit > 100 ? 100 : limit;
-    return this.productService.paginate({
-      page,
-      limit,
-    });
+  async findAll() {
+    return this.productService.findAll();
   }
 
   @Get(':id')

@@ -11,4 +11,4 @@ export const redisConstants = {
   redisPort: 6379,
 };
 
-export const TIMETOLIVE = 180000;
+export const TIMETOLIVE = 5 * 60 * 1000;

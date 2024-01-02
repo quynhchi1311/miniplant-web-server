@@ -7,6 +7,7 @@ import * as session from 'express-session';
 import { createClient } from 'redis';
 import { Logger } from '@nestjs/common';
 import { TIMETOLIVE } from './constants';
+import * as cookieParser from 'cookie-parser';
 
 const RedisStore = require('connect-redis').default;
 
@@ -50,6 +51,11 @@ async function bootstrap() {
       },
     }),
   );
-  await app.listen(3000);
+  app.enableCors({
+    origin: 'http://localhost:9000', // Replace with your front-end domain
+    credentials: true, // Allows the browser to send cookies
+  });
+  app.use(cookieParser());
+  await app.listen(5000);
 }
 bootstrap();

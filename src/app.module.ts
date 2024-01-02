@@ -25,6 +25,8 @@ import { Employee } from './typeorm/entities/Employee';
 import { RoleModule } from './role/role.module';
 import { ImageModule } from './image/image.module';
 import { Image } from './typeorm/entities/Image';
+import { OrderProductModule } from './order_product/order_product.module';
+import { OrderProduct } from './typeorm/entities/Order_Product';
 
 @Module({
   imports: [
@@ -50,7 +52,8 @@ import { Image } from './typeorm/entities/Image';
         Order,
         Coupon,
         Employee,
-        Image
+        Image, 
+        OrderProduct
       ],
       synchronize: false,
     }),
@@ -66,6 +69,7 @@ import { Image } from './typeorm/entities/Image';
     EmployeeModule,
     RoleModule,
     ImageModule,
+    OrderProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

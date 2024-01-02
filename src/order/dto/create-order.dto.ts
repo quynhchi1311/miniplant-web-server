@@ -5,5 +5,5 @@ export class CreateOrderDto {
   orderPreTotal: number;
   orderTotal: number;
   orderStatus: OrderStatus;
-  cusID: number;
+  cusID?: number;
 }

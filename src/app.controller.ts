@@ -5,8 +5,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('home')
+  @Get('get-session-id')
   async getSession(@Session() session: Record<string, any>) {
-    console.log(session.id);
+    return session.id;
   }
 }
